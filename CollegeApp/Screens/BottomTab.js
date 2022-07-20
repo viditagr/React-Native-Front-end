@@ -12,9 +12,11 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTab() {
     return (
-        <NavigationContainer>
+        <NavigationContainer independent={true} >
 
-            <Tab.Navigator screenOptions={{ headerShown: false }}>
+            <Tab.Navigator screenOptions={{ headerShown: false,
+            tabBarStyle:{backgroundColor: '#080707',} }} >       
+        
                 <Tab.Screen name="Home" component={Home} />
                 <Tab.Screen name="Explore" component={Explore} />
                 <Tab.Screen name="Plus" component={Plus} />
@@ -22,6 +24,8 @@ export default function BottomTab() {
                 <Tab.Screen name="Notifications" component={Notifications} />
             </Tab.Navigator>
 
+            
         </NavigationContainer>
+        
     );
 }
