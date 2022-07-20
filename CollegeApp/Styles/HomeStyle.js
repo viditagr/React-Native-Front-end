@@ -15,6 +15,9 @@ export default StyleSheet.create({
         borderWidth: 2,
         padding: 10,
         marginHorizontal: 20,
+        borderRadius: 30,
+        marginVertical: 5,
+
     },
     category: {
         color:"white",
@@ -25,6 +28,8 @@ export default StyleSheet.create({
         borderColor: "#706e6e",
         borderWidth: 3,
         padding: 10,
+        borderRadius: 40,
+
 
     },
     scrollView: {
