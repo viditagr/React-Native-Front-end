@@ -42,7 +42,7 @@ function Category() {
 
     <View style={HomeStyle.category}>
 
-    <Text style={{color:"#f7f5f5"}}>Category</Text>
+    <Text style={{color:"#37ad2b", fontSize:30, }}>Category</Text>
 
     <NavigationContainer independent={true}>
         <Stack.Navigator initialRouteName="PostScreen">
@@ -70,8 +70,7 @@ export default function HomeScreen() {
 
 <SafeAreaView >
       <ScrollView style={HomeStyle.scrollView}>
-      <View  style={HomeStyle.container}>
-        <Text style={{fontSize: 40}}>Category</Text>
+      <View  >
         <Category />
       </View>
 
@@ -81,7 +80,6 @@ export default function HomeScreen() {
       </View>
 
       <View  style={HomeStyle.container}>
-        <Text>Category</Text>
         <Category />
       </View>
       </ScrollView>
