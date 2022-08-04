@@ -19,9 +19,9 @@ function Post() {
       
       <Button
         title="Title"
-        onPress={() => Alert.alert("unfinished")}
+        onPress={() => navigation.navigate('PostScreen')}
         />
-        <Text style={{color:"#f7f5f5"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+        <Text style={HomeStyle.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
         </Text>
     </View>
   
@@ -31,34 +31,37 @@ function Post() {
 
 function PostScreen() {
   return (
-    <View >
-      <Text style={{color:"#f7f5f5"}}>Post Screen</Text>
+    <View style={HomeStyle.container}>
+      <Text style={HomeStyle.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+        </Text>
     </View>
   );
 }
 
-function Category() {
+function PostGroup({navigation}) {
+  
   return (
+    <SafeAreaView >
+      <ScrollView style={HomeStyle.scrollView}>
 
-    <View style={HomeStyle.category}>
+    <View style={HomeStyle.postGroup}>
 
-    <Text style={{color:"#37ad2b", fontSize:30, }}>Category</Text>
+    <Text style={{color:"#37ad2b", fontSize:30, }}>Trending</Text>
 
-    <NavigationContainer independent={true}>
-        <Stack.Navigator initialRouteName="PostScreen">
-          <Stack.Screen name="PostScreen" component={PostScreen} />
-          
-        </Stack.Navigator>
-      </NavigationContainer>
 
       
-      <Post/>
-      <Post/>
-      <Post/>
-    
+      <Post {...navigation}/>
+      <Post {...navigation}/>
+      <Post {...navigation}/>
+      <Post {...navigation}/>
+      <Post {...navigation}/>
+      <Post {...navigation}/>
+      <Post {...navigation}/>
     
     </View>
 
+      </ScrollView>
+    </SafeAreaView>
 
   );
 }
@@ -67,24 +70,14 @@ export default function HomeScreen() {
   return (
       <View  style={HomeStyle.container}>
 
-
-<SafeAreaView >
-      <ScrollView style={HomeStyle.scrollView}>
-      <View  >
-        <Category />
-      </View>
-
-      <View  style={HomeStyle.container}>
-        <Text>Category</Text>
-        <Category />
-      </View>
-
-      <View  style={HomeStyle.container}>
-        <Category />
-      </View>
-      </ScrollView>
-    </SafeAreaView>
-
+< NavigationContainer independent={true} style={HomeStyle.container}>
+      <Stack.Navigator initialRouteName="AllPosts" screenOptions={{ headerShown: false,
+             }}>
+        <Stack.Screen name="AllPosts" component={PostGroup} />
+        <Stack.Screen name="PostScreen" component={PostScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+      
       </View>
     );
 }

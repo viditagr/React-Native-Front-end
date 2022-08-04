@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTab() {
     return (
-        <NavigationContainer independent={true} >
+        <NavigationContainer >
 
             <Tab.Navigator screenOptions={{ headerShown: false,
             tabBarStyle:{backgroundColor: '#080707',} }} >       
